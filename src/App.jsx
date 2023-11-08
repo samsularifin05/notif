@@ -1,60 +1,34 @@
 import { useState } from "react";
-import { Notifications } from "react-push-notification";
-import addNotification from "react-push-notification";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [name, setName] = useState("");
-
-  function warningNotification() {
-    addNotification({
-      title: "Warning",
-      subtitle: "Please fill it",
-      message: "You have to enter name",
-      theme: "red",
-      native: true,
-      vibrate: 10,
-      position: "top-right",
-      closeButton: "X"
-    });
-  }
-
-  function successNotification() {
-    addNotification({
-      title: "Success",
-      position: "top-right",
-      subtitle: "You have successfully submitted",
-      message: "Welcome to GeeksforGeeks",
-      theme: "light",
-      closeButton: "X",
-      native: true,
-      vibrate: 10,
-      backgroundTop: "green",
-      backgroundBottom: "yellowgreen"
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (name === "") warningNotification();
-    else successNotification();
-  }
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <Notifications />
-      <h1>Hey Geek!</h1>
-      <form>
-        <label>Name:</label>
-        <input
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button onClick={handleSubmit} type="submit">
-          Submit
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
         </button>
-      </form>
-    </div>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   );
 }
 
