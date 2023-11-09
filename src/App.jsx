@@ -48,7 +48,7 @@ function App() {
   // console.log(notification);
   return (
     <div>
-      {tokens}
+      Update :{tokens}
       {/* {notification && (
         <div>
           <p>Title: {notification.title}</p>
