@@ -31,7 +31,10 @@ messaging.onMessage((payload) => {
     body: payload.notification.body
   };
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  return self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
 });
 
 messaging.onBackgroundMessage(function (payload) {
@@ -42,5 +45,8 @@ messaging.onBackgroundMessage(function (payload) {
     body: payload.notification.body
   };
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  return self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
 });
