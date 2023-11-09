@@ -24,6 +24,8 @@ firebase.initializeApp(firebaseConfig);
 // Retrieve firebase messaging
 const messaging = firebase.messaging();
 
+messaging.subscribeToTopic("news");
+
 messaging.onMessage((payload) => {
   console.log("TESTSTSTST ", payload.notification.body);
   const notificationTitle = payload.notification.title;
