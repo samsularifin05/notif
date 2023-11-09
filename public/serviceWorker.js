@@ -24,15 +24,6 @@ firebase.initializeApp(firebaseConfig);
 // Retrieve firebase messaging
 const messaging = firebase.messaging();
 
-messaging
-  .subscribeToTopic("news")
-  .then(() => {
-    console.log("Subscribed to the topic");
-  })
-  .catch((error) => {
-    console.error("Subscription failed:", error);
-  });
-
 messaging.onMessage((payload) => {
   console.log("TESTSTSTST ", payload.notification.body);
   const notificationTitle = payload.notification.title;
